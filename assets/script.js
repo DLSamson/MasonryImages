@@ -2,7 +2,7 @@ $(document).ready(() => {
     const masonry = new Masonry('.dashboard', {
         itemSelector: '.grid-item',
         columnWidth: 24,
-        gutter: 10,
+        gutter: 0,
         percentPosition: true,
     });
 

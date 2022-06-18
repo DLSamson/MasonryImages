@@ -18,6 +18,8 @@ $images = array_map(fn($element) => '/media/'.$element, $images);
     </head>
     <body>
         <div class="container">
+            <h1>Masonry images</h1>
+            <hr>
             <div class="dashboard">
                 <?php foreach ($images as $img): ?>
                     <div class="grid-item <?php echo rand(0,3) == 0 ? 'grid-item-width' : '' ?>">
