@@ -10,9 +10,12 @@ $images = array_map(fn($element) => '/media/'.$element, $images);
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
-        <title>My images</title>
         <base href="/">
+        <title>My images</title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="assets/normalize.css">
         <link rel="stylesheet" href="assets/skeleton.css">
     </head>
@@ -21,6 +24,7 @@ $images = array_map(fn($element) => '/media/'.$element, $images);
             <h1>Masonry images</h1>
             <hr>
             <div class="dashboard">
+                <div class="grid-sizer"></div>
                 <?php foreach ($images as $img): ?>
                     <div class="grid-item <?php echo rand(0,3) == 0 ? 'grid-item-width' : '' ?>">
                         <img src="<?= $img ?>">

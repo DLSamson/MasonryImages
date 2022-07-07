@@ -1,8 +1,7 @@
 $(document).ready(() => {
     const masonry = new Masonry('.dashboard', {
+        columnWidth: '.grid-sizer',
         itemSelector: '.grid-item',
-        columnWidth: 24,
-        gutter: 0,
         percentPosition: true,
     });
 
@@ -10,4 +9,8 @@ $(document).ready(() => {
         $(this).toggleClass('grid-item-width');
         masonry.layout();
     });
+
+    setTimeout(() => {
+        masonry.layout();
+    }, 2000);
 });
