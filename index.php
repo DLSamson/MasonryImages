@@ -3,10 +3,8 @@
 $path = __DIR__.'/media/';
 $files = scandir($path, SCANDIR_SORT_ASCENDING);
 $images = array_filter($files, fn($element) => preg_match('/.(png|jpeg|jpg|gif)/', $element));
-$images = array_map(fn($element) => '/media/'.$element, $images);
 
- ?>
-
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -27,7 +25,7 @@ $images = array_map(fn($element) => '/media/'.$element, $images);
                 <div class="grid-sizer"></div>
                 <?php foreach ($images as $img): ?>
                     <div class="grid-item <?php echo rand(0,3) == 0 ? 'grid-item-width' : '' ?>">
-                        <img src="<?= $img ?>">
+                        <img src="/media/<?= $img ?>">
                     </div>
                 <?php endforeach; ?>
             </div>
