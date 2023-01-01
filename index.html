@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <base href="/">
+        <title>Masonry Images</title>
+        <link rel="icon" type="image/svg" href="favicon.svg">
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="Simple example of using masonry.js with pony images">
+        <meta name="keywords" content="Masonry, Masonry Images, Pony, PonyWeb, Github Project">
+
+        <link rel="stylesheet" href="/assets/normalize.css">
+        <link rel="stylesheet" href="/assets/skeleton.css">
+        <link rel="stylesheet" href="/assets/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Masonry Images</h1>
+            <p class="description">
+                This is my simple example of using masonry.js 
+                with pony images taken from PonyWeb APIs.
+                <br>
+                You can click on image to change it's size
+            </p>
+            <p class="description">
+                You may find the whole project on <a target="_blank" href="https://github.com/DLSamson/MasonryImages">Github</a>
+            </p>
+            <p class="description">
+                Also here are the links to what I used:
+            </p>
+            <div class="tags">
+                <a class="tag tag_js" target="_blank" href="https://masonry.desandro.com">Masonry</a>
+                <a class="tag tag_js" target="_blank" href="https://axios-http.com">Axios</a>
+                <a class="tag tag_js" target="_blank" href="https://jquery.com">JQuery</a>
+                <a class="tag tag_css" target="_blank" href="http://getskeleton.com">Skeleton CSS</a>
+                <a class="tag tag_api" target="_blank" href="http://ponyweb.ml">PonyWeb API</a>
+            </div>
+            <hr>
+            <div class="dashboard">
+                <!-- The first div needs to help masonry 
+                    calculate the lowest width of image -->
+                <div class="grid-sizer"></div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script src="/assets/script.js"></script>
+    </body>
+</html>
