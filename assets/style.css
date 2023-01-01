@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    color: #444
+}
+
+h1 {
+    margin-top: 30px;
+}
+img {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.grid-sizer,
+.grid-item {
+    width: 25%;
+    margin: 0;
+    padding: 0 5px
+}
+.grid-item img {
+    border-radius: 10px;
+    border: 2px solid white;
+    transition: .3s
+}
+.grid-item:hover img {
+    border: 2px solid grey !important;
+}
+.grid-item-width {
+    width: 50%;
+}
+
+@media (max-width: 750px) {
+  .grid-sizer,
+  .grid-item {
+    width: 33%;
+  }
+  .grid-item-width {
+    width: 66%;
+  }
+}
+
+.description {
+    font-size: 18px;
+}
+
+.tags {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tag {
+    width: fit-content;
+    border-radius: 5px;
+    margin-right: 7px;
+    margin-bottom: 7px;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.tag_css {
+    background-color: rgb(95, 194, 255);
+    color: white;
+}
+.tag_js {
+    background-color: rgb(255, 255, 0);
+    color: #444
+}
+.tag_api {
+    background-color: rgb(248, 151, 167);
+    color: white;
+}
+
+.tag:hover {box-shadow: 0 0 5px darkgrey;}
+.tag_css:hover {color: white;}
+.tag_js:hover {color: #444}
+.tag_api:hover {color: white;}
