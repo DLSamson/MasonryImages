@@ -1,17 +1,23 @@
 # Masonry images
 
-This is my simple example of masonry.js with pony images and gifs
+This is my simple example of using masonry.js with pony images taken from PonyWeb API
 
-You can change your images, just put them into media/ folder
+## This is what I used here:
 
-This is what I used here:
+### CSS: 
 
-[Masonry](https://masonry.desandro.com/)
-and 
-[Skeleton CSS](http://getskeleton.com/)
+[Skeleton CSS](http://getskeleton.com)
 
-You can easily start local server from your bash terminal
-```bash
-php -S localhost:8080
-```
-And go to [localhost:8080](http://localhost:8080)
+### JS:
+
+[Masonry](https://masonry.desandro.com) -
+[Github](https://github.com/desandro/masonry)
+
+[Axios](https://axios-http.com) -
+[Github](https://github.com/axios/axios)
+
+[JQuery](https://jquery.com)
+
+### Images:
+
+[PonyWeb.ml API](http://ponyweb.ml)
