@@ -2,6 +2,8 @@
 
 This is my simple example of using masonry.js with pony images taken from PonyWeb API
 
+You can click on image to change it's size
+
 ## This is what I used here:
 
 ### CSS: 
