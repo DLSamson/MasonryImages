@@ -3,56 +3,86 @@ $(document).ready(() => {
         columnWidth: '.grid-sizer',
         itemSelector: '.grid-item',
         percentPosition: true,
+        transitionDuration: '0.5s',
     });
-    
-    dashboard.on('click', '.grid-item', function() {
+
+    dashboard.on('click', '.grid-item', function () {
         $(this).toggleClass('grid-item-width');
         dashboard.masonry('layout');
     });
 
-    const apiUrl = 'https://ponyweb.ml/v1/image/all';
+    const imageObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting) {
+                    observer.unobserve(entry.target);
+                    loadImages();
+                }  
+            });
+        },
+        {
+            rootMargin: '150px 0px 0px'
+        }
+    );
 
+    const apiUrl = 'https://ponyweb.ml/v1/image/all';
     let limit = 10;
     let offset = 0;
 
     const loadImages = async () => {
-        const response = await axios.get(apiUrl);
-        const images = response.data.data;
-        images.forEach((image, index) => {
-            /*
-            <div class="grid-item grid-item-width">
-                <img src="" title="" id="">
-            </div>
-            */
+        try {
+            const response = await axios.get(
+                apiUrl,
+                {
+                    params: {
+                        limit: limit,
+                        offset: limit * offset++,
+                    }
+                }
+            );
+            const images = response.data.data;
+            images.forEach((image, index) => {
+                /*
+                <div class="grid-item grid-item-width">
+                    <img src="" title="" id="">
+                </div>
+                */
 
-            const gridItem = document.createElement('div');
-            const img = document.createElement('img');
-            img.src = image.url;
-            img.title = `${image.name} | ${image.comment}`;
-            img.id = image.id;
+                const gridItem = document.createElement('div');
+                const img = document.createElement('img');
+                img.src = image.url;
+                img.title = `${image.name} | ${image.comment}`;
+                img.id = image.id;
 
-            // Not sure about the perfomance
-            $(img).on('load readystatechange', (event) => {
-                if(this.complete || (this.readyState == 'complete' && event.type == 'readystatechange')) 
-                    dashboard.masonry('layout')
+                // Not sure about the perfomance
+                $(img).on('load', () => {
+                    dashboard.masonry('layout');
+                });
+
+                gridItem.classList.add('grid-item');
+                index % 5 === 0
+                    ? gridItem.classList.add('grid-item-width')
+                    : null;
+
+                gridItem.appendChild(img);
+
+                dashboard
+                    .append(gridItem)
+                    .masonry('appended', gridItem);
             });
 
-            gridItem.classList.add('grid-item');
-            index % 5 === 0
-                ? gridItem.classList.add('grid-item-width')
-                : null;
+            //In case if masonry messed up while loading
+            setTimeout(() => {
+                dashboard.masonry('layout');
+                const lastGridItem = $('.dashboard .grid-item:last-child')[0];
+                imageObserver.observe(lastGridItem);
+            }, 1500);
 
-            gridItem.appendChild(img);
+        } catch (error) {
+            alert('Something went wrong, cannot load more images');
+            console.error(error);
+        }
 
-            dashboard
-                .append(gridItem)
-                .masonry('appended', gridItem);
-        });
-
-        //In order if masonry messed up while loading
-        setTimeout(() => {
-            dashboard.masonry('layout')
-        }, 1500);
     };
     loadImages();
 });
