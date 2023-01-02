@@ -21,12 +21,12 @@ $(document).ready(() => {
             });
         },
         {
-            rootMargin: '150px 0px 0px'
+            rootMargin: '300px 0px 0px'
         }
     );
 
     const apiUrl = 'https://ponyweb.ml/v1/image/all';
-    let limit = 10;
+    let limit = 30;
     let offset = 0;
 
     const loadImages = async () => {
@@ -71,9 +71,10 @@ $(document).ready(() => {
                     .masonry('appended', gridItem);
             });
 
-            //In case if masonry messed up while loading
             setTimeout(() => {
+                //In case if masonry messed up while loading
                 dashboard.masonry('layout');
+
                 const lastGridItem = $('.dashboard .grid-item:last-child')[0];
                 imageObserver.observe(lastGridItem);
             }, 1500);
@@ -86,3 +87,12 @@ $(document).ready(() => {
     };
     loadImages();
 });
+
+/* 
+    Anyways this code can be laggy 
+    when there are many images loaded already
+    since masonry recalculates dashboard many times
+
+    It still works on my phone, but gonna be bad on
+    low-level segment
+*/
