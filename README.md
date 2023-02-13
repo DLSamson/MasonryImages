@@ -22,4 +22,15 @@ You can click on image to change it's size
 
 ### Images:
 
-[PonyWeb.ml API](http://ponyweb.ml)
+~~[PonyWeb.ml API](http://ponyweb.ml)~~
+> PonyWeb.ml is not working anymore, but probably in the future it may change.
+
+[Wishy](https://wishiy.com)
+
+> It's not really the best way of using this api, but it works.
+
+---
+
+> Wishy's developer, if you read this, I'm sorry for disturbing you.
+> Please contact me DLSamson@yandex.ru if I did something bad.
+> I just wanted to make some kind of a present to a girl I like
